@@ -1,5 +1,6 @@
 import { ApolloServer, gql } from 'apollo-server-express';
 import express from 'express';
+import { createSchema } from './createSchema';
 
 const startServer = async () => {
   const typeDefs = gql`
@@ -17,7 +18,7 @@ const startServer = async () => {
   const app = express();
 
   const server = new ApolloServer({
-    // These will be defined for both new or existing servers
+    // schema: createSchema()
     typeDefs,
     resolvers,
   });
